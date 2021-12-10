@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'scoreboard';
+  src: url('../css/scoreboard.ttf');
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: cover;
+}
+#score {
+  position: absolute;
+  top: 0px;
+  left: 600px;
+  color: orangered;
+  font-size: 1.5em;
+  font-family: 'scoreboard', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+#board {
+  position: relative;
+}
+
+#floor {
+  background-image: url('../img/tile1.jpg');
+  position: absolute;
+  top: 600px;
+  left: 10px;
+  width: 100%;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+}
+#wall {
+  background-image: url('../img/tile2.jpg');
+  position: absolute;
+  top: 268px;
+  left: 526px;
+  width: 173px;
+  height: 333px;
+  margin: 0;
+  padding: 0;
+}
+#tree {
+  background-image: url('../img/tree.png');
+  position: absolute;
+  top: 410px;
+  left: 800px;
+  width: 200px;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+}
+#toucan {
+  background-image: url('../img/toucan/toucan_down_anim.gif');
+  position: absolute;
+  top: 431px;
+  left: 824px;
+  width: 40px;
+  height: 40px;
+}
+.fly {
+  animation: fly 5s forwards;
+}
+@keyframes fly {
+  from {
+    left: 824px;
+    top: 435px;
+  }
+  to {
+    left: 1900px;
+    top: -100px;
+  }
+}
+#toucan1 {
+  background-image: url('../img/toucan/toucan_up_anim.gif');
+  position: absolute;
+  top: 431px;
+  left: 824px;
+  width: 40px;
+  height: 40px;
+}
+#toucan2 {
+  background-image: url('../img/toucan/toucan_squawk_anim.gif');
+  position: absolute;
+  top: 431px;
+  left: 824px;
+  width: 40px;
+  height: 40px;
+}
+#toucan3 {
+  background-image: url('../img/toucan/toucan_hop_anim.gif');
+  position: absolute;
+  top: 431px;
+  left: 824px;
+  width: 70px;
+  height: 40px;
+}
+#toucan4 {
+  background-image: url('../img/toucan/toucan_fly_anim.gif');
+  position: absolute;
+  top: 431px;
+  left: 824px;
+  width: 70px;
+  height: 40px;
+}
+#chest {
+  position: absolute;
+  display: block;
+  height: 45px;
+  width: 32px;
+  left: 200px;
+  top: 568px;
+  background-image: url('../img/chest.png');
+  background-position-x: 97px;
+  background-position-y: 96px;
+  padding-right: 1px;
+}
+#chestTouched {
+  position: absolute;
+  display: none;
+
+  height: 34px;
+  width: 44px;
+  left: 200px;
+  top: 568px;
+  background-image: url('../img/chest_unlock.gif');
+  background-position-x: 88px;
+  background-position-y: 96px;
+  padding-right: 1px;
+}
+#mushroom {
+  position: absolute;
+  display: block;
+  height: 34px;
+  width: 52px;
+  left: 400px;
+  top: 568px;
+  background-image: url('../img/mushroom.png');
+  background-position-x: 120px;
+  background-position-y: 96px;
+  padding-right: 1px;
+}
+#mushroomTouched {
+  display: none;
+  position: absolute;
+  height: 33px;
+  width: 57px;
+  left: 400px;
+  top: 568px;
+  background-image: url('../img/mushroom.gif');
+  background-position-x: 126px;
+  background-position-y: 96px;
+  padding-right: 1px;
+}
+#merlinContainer {
+  position: absolute;
+  height: 140px;
+  width: 135px;
+  left: 0px;
+  top: 461px;
+  overflow: hidden;
+}
+#merlin {
+  position: absolute;
+  background-image: url('../img/wizardpack/run.png');
+  background-position-x: -60px;
+  height: 180px;
+  width: 1800px;
+}
+#angular {
+  position: absolute;
+  height: 105px;
+  width: 100px;
+  left: -373px;
+  top: 0px;
+  display: none;
+  background-image: url('../img/angular.png');
+}
+#nodeJS {
+  position: absolute;
+  height: 105px;
+  width: 193px;
+  left: -275px;
+  top: 0px;
+  display: none;
+  background-image: url('../img/nodejs.png');
+}
+#clouds {
+  position: absolute;
+  height: 1600px;
+  width: 1600px;
+  left: 0px;
+  top: 0px;
+  display: block;
+  background-image: url('../img/clouds.gif');
+}
+.cloudsMove {
+  animation: cloudsMove 150s forwards;
+}
+@keyframes cloudsMove {
+  from {
+    left: 1000px;
+    top: -200px;
+  }
+  to {
+    left: -800px;
+    top: -800px;
+  }
+}
+#bubbles {
+  position: absolute;
+  height: 200px;
+  width: 290px;
+  left: 340px;
+  top: 400px;
+  display: none;
+  background-image: url('../img/bubbles.gif');
+}
+.bubblesUp {
+  animation: bubblesUp 5s forwards;
+}
+@keyframes bubblesUp {
+  from {
+    left: 340px;
+    top: 400px;
+  }
+  to {
+    left: 500px;
+    top: 10px;
+  }
+}

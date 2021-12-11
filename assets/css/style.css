@@ -30,6 +30,7 @@ body {
   margin: 0;
   padding: 0;
 }
+/*
 #wall {
   background-image: url('../img/tile2.jpg');
   position: absolute;
@@ -39,7 +40,7 @@ body {
   height: 333px;
   margin: 0;
   padding: 0;
-}
+}*/
 #tree {
   background-image: url('../img/tree.png');
   position: absolute;
@@ -118,12 +119,49 @@ body {
 #chestTouched {
   position: absolute;
   display: none;
-
   height: 34px;
   width: 44px;
   left: 200px;
   top: 568px;
   background-image: url('../img/chest_unlock.gif');
+  background-position-x: 88px;
+  background-position-y: 96px;
+  padding-right: 1px;
+}
+#scorpio {
+  position: absolute;
+  display: block;
+  height: 48px;
+  width: 47px;
+  left: 600px;
+  top: 551px;
+  background-image: url('../img/ennemies/3Scorpio/Scorpio_walk.png');
+  background-position-x: 97px;
+  background-position-y: 96px;
+  padding-right: 1px;
+}
+.scorpioMove {
+  animation: scorpioMove 80s infinite;
+}
+@keyframes scorpioMove {
+  from {
+    left: 1200px;
+  }
+  50% {
+    left: 800px;
+  }
+  to {
+    left: -600px;
+  }
+}
+#scorpioTouched {
+  position: absolute;
+  display: none;
+  height: 48px;
+  width: 47px;
+  left: 600px;
+  top: 551px;
+  background-image: url('../img/ennemies/3Scorpio/Scorpio_hurt.png');
   background-position-x: 88px;
   background-position-y: 96px;
   padding-right: 1px;
@@ -154,16 +192,18 @@ body {
 }
 #merlinContainer {
   position: absolute;
-  height: 140px;
-  width: 135px;
+  height: 90px;
+  background: red;
+  width: 69px;
   left: 0px;
-  top: 461px;
+  top: 510px;
   overflow: hidden;
 }
 #merlin {
   position: absolute;
-  background-image: url('../img/wizardpack/run.png');
-  background-position-x: -60px;
+  background-image: url('../img/wizardpack/idle.png');
+  background-position-x: -774px;
+  background-position-y: -51px;
   height: 180px;
   width: 1800px;
 }
@@ -176,11 +216,20 @@ body {
   display: none;
   background-image: url('../img/angular.png');
 }
+#js {
+  position: absolute;
+  height: 110px;
+  width: 97px;
+  left: -183px;
+  top: 7px;
+  display: none;
+  background-image: url('../img/js.png');
+}
 #nodeJS {
   position: absolute;
   height: 105px;
   width: 193px;
-  left: -275px;
+  left: 150px;
   top: 0px;
   display: none;
   background-image: url('../img/nodejs.png');

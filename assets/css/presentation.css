@@ -1,0 +1,51 @@
+#ifocop {
+  display: none;
+  position: absolute;
+  top: 223px;
+  left: 400px;
+}
+#containerStory {
+  display: flex;
+}
+#figure {
+  background-image: url('assets/img/idle_anim.gif');
+  width: 200px;
+  height: 510px;
+}
+/* Texte défilant */
+.content {
+  display: block;
+  margin: 40px auto;
+  margin-top: 40px;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  table-layout: fixed;
+  width: 736px;
+  height: 350px;
+  top: -55px;
+  left: 209px;
+}
+.message {
+  display: block;
+  margin-top: 100%;
+  padding: 0 5px;
+  font-size: 2rem;
+  text-align: left;
+  animation: defilement 30s forwards linear;
+}
+.message:after {
+  content: attr(data-text);
+  position: absolute;
+  white-space: nowrap;
+  padding-left: 10px;
+}
+@keyframes defilement {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  99.99% {
+    margin-top: 70%;
+  }
+}

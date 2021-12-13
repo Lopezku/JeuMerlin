@@ -112,6 +112,7 @@ function toucanMoves(element){
         toucan.id="toucan4";
         toucan.classList.add("fly");
         isToucanFlying=true;
+        
     }
 }
 
@@ -146,6 +147,7 @@ function jump(jumpDuration, jumpHeight, multiplier){
     gsap.delayedCall(.06, function(){
         if(spaceHoldStatus===true){    
             methodes.onMerlinMove(); 
+            console.log(merlin)
           multiplier += 1;
           if(multiplier<=5){
             jump(jumpDuration, jumpHeight, multiplier);
@@ -620,10 +622,12 @@ window.addEventListener('keydown', (event)=>{
     }
     if('Space' === event.code){
         directions.space=true;
+        
         if(isJumping===false && spaceHoldStatus===false){
             spaceHoldStatus = true;
-            isJumping = true;     
+            isJumping = true;   
             jump(.05, -40, 1);
+            methodes.onMerlinMove();   
            
           }
         //methodes.onMerlinMove();

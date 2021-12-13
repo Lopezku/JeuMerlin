@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerome Lopez arrivée entrée du game</title>
+    <style>
+        #ifocop{
+            display: none;
+        position: absolute;
+        top: 223Px;
+        left:400Px;
+        }
+        #containerStory{
+            display:flex;
+        }
+        #figure{
+            background-image: url('assets/img/idle_anim.gif');
+            width:200px;
+            height:510px;
+        }
+/* Texte défilant */
+.content {
+    display: block;
+margin: 40px auto;
+    margin-top: 40px;
+padding: 0;
+overflow: hidden;
+position: absolute;
+table-layout: fixed;
+width: 736px;
+height: 350px;
+top: -55px;
+left: 209px;
+}
+.message {
+	display: block;
+	margin-top: 100%;
+	padding: 0 5px;
+	font-size: 2rem;
+	text-align: left;
+	animation: defilement 30s forwards linear;
+}
+.message:after {
+	content: attr(data-text);
+	position: absolute;
+	white-space: nowrap;
+	padding-left: 10px;
+}
+ @keyframes defilement {
+ 0%, 100% {
+margin-top:0;
+}
+ 99.99% {
+margin-top:70%;
+}
+}
+    </style>
+</head>
+<body>
+    <h1>Il était une fois...</h1>
+    <div id="figure"></div>
+    <div class="content"><span class="message">un homme qui aimait l'histoire, les langues, la Colombie et le sport... Il était heureux mais quelque chose le titillait depuis toujours son amour de la logique et des maths. Un jour, il vit une opportunité:</span> </div>
+    <button id="ifocop">Formation Développeur Fullstack JS</button>
+    <div id="histoire"></div>
+    <script>
+        let figure= document.getElementById('figure');
+        let newLeft = document.getElementById('figure').offsetLeft;
+        let ifocop=document.getElementById("ifocop");
+        let displayButton = function() {
+            ifocop.style.display="block";   
+    }
+    setTimeout(displayButton, 8000);
+
+    ifocop.addEventListener('click',moveFigure());
+        function moveFigure(){
+            figure.style.backgroundImage=`url('assets/img/walk_anim.gif')`;
+            figure.style.width='300px';
+            newLeft=+50;
+            figure.style.left=newLeft+'px';
+            ifocop.style.display="none";
+        }
+    </script>
+</body>
+</html>

@@ -4,14 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeu Merlin</title>
+    <title>CV Jeu interactif Jérôme Lopez</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+<link rel="shortcut icon" type="image/png" href="assets/img/favicon-avatar.png"/>
 </head>
-<link rel="stylesheet" href="assets/css/style.css">
+
 <body>
-    <div id="clouds" class="cloudsMove"></div>
-    <div id="score"><div id="angular"></div><div id="nodeJS"></div><div id="js"></div><h1>Ready to rumble</h1>Votre score:<div id="counter">0</div></div>
+    <div id="clouds"></div>
+    <div id="sky"></div>
+    <div id="mountain"></div>
+    <div id="attackScript"></div>
+    <div id="score"><div id="angular"></div><div id="nodeJS"></div><div id="js"></div><div id="typescript"></div><h1>Ready to rumble</h1>Votre score:<div id="counter">0</div>
+Vos vies:<div id="life"></div></div>
+<a class="button button1" href="https://www.jerome-lopez.com/jerome_lopez.pdf">Accéder au CV directement</a>
+    <a class="button button2" href="https://www.jerome-lopez.com/ProjetCV/CV-Interactif/index.html">Accéder à mon portfolio</a>
+    <figure id="audio">
+        <figcaption>Un peu de son?</figcaption>
+        <audio id="player" autoplay loop>
+            <source src="assets/music/tom_tom.mp3" type="audio/mpeg">
+            Votre navigateur ne supporte pas la balise audio
+            </audio>
+    </figure>
+    <button id="play" onclick="document.getElementById('player').play()">Play</button> 
+    <button id="pause" onclick="document.getElementById('player').pause()">Pause</button> 
+    <button id="volPlus" onclick="document.getElementById('player').volume += 0.1">Vol +</button> 
+    <button id="volMoins" onclick="document.getElementById('player').volume -= 0.1">Vol -</button> 
     <div id="board">
-        
+        <div id="bear"></div>
+        <div id="bearTouched"></div>
     <div id="merlinContainer">
     <div id="merlin"></div>
     </div>
@@ -22,10 +42,17 @@
     <div id="mushroomTouched"></div>
     <div id="scorpio" class="scorpioMove"></div>
     <div id="scorpioTouched"></div>
+    
     <div id="floor"></div><div id="tree"></div><div id="wall"></div>
     <div id="toucan"></div>
+    <div id="tile3"></div>
+    <div id="mushroom2"></div>
+    <div id="mushroom2Touched"></div>
 
 </div>
+<!--to jump TweenMax et Jquery-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js" integrity="sha512-eP6ippJojIKXKO8EPLtsUMS+/sAGHGo1UN/38swqZa1ypfcD4I0V/ac5G3VzaHfDaklFmQLEs51lhkkVaqg60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="index.js"></script>
 </body>
 </html>

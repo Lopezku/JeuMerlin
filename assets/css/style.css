@@ -5,16 +5,115 @@
 body {
   margin: 0;
   padding: 0;
-  background: cover;
+  /*background: cover;*/
 }
+/* boutons audio */
+#play {
+  background-color: #4caf50;
+  position: absolute;
+  height: 31px;
+  width: 68px;
+  left: 130px;
+  top: 1px;
+  z-index: 4;
+}
+#volPlus {
+  position: absolute;
+  height: 31px;
+  width: 68px;
+  left: 257px;
+  top: 1px;
+  z-index: 4;
+}
+#volMoins {
+  position: absolute;
+  height: 31px;
+  width: 68px;
+  left: 325px;
+  top: 1px;
+  z-index: 4;
+}
+
+figcaption {
+  font-family: 'scoreboard', Helvetica, Arial, sans-serif;
+  width: 144px;
+}
+#pause {
+  background-color: #f44336;
+  position: absolute;
+  height: 31px;
+  width: 68px;
+  left: 190px;
+  top: 1px;
+  z-index: 4;
+}
+#audio {
+  position: absolute;
+  height: 105px;
+  width: 100px;
+  left: -38px;
+  top: -18px;
+  z-index: 4;
+}
+.button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: fixed;
+  left: 800px;
+  z-index: 4;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4caf50;
+}
+
+.button1:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008cba;
+  left: 1100px;
+}
+
+.button2:hover {
+  background-color: #008cba;
+  color: white;
+}
+
 #score {
   position: absolute;
-  top: 0px;
+  top: 30px;
   left: 600px;
   color: orangered;
   font-size: 1.5em;
   font-family: 'scoreboard', Helvetica, Arial, sans-serif;
   font-weight: bold;
+  z-index: 4;
+}
+#life {
+  /*background-image: url('../img/heart.png');
+  width: 43%;
+  height: 49px;*/
+  background-image: url('../img/avatar_life.png');
+  width: 43%;
+  height: 100px;
+  z-index: 4;
 }
 #board {
   position: relative;
@@ -24,11 +123,12 @@ body {
   background-image: url('../img/tile1.jpg');
   position: absolute;
   top: 600px;
-  left: 10px;
+  left: -2px;
   width: 100%;
   height: 300px;
   margin: 0;
   padding: 0;
+  z-index: 4;
 }
 /*
 #wall {
@@ -44,12 +144,13 @@ body {
 #tree {
   background-image: url('../img/tree.png');
   position: absolute;
-  top: 410px;
+  top: 418px;
   left: 800px;
   width: 200px;
   height: 200px;
   margin: 0;
   padding: 0;
+  z-index: 4;
 }
 #toucan {
   background-image: url('../img/toucan/toucan_down_anim.gif');
@@ -58,6 +159,7 @@ body {
   left: 824px;
   width: 40px;
   height: 40px;
+  z-index: 4;
 }
 .fly {
   animation: fly 5s forwards;
@@ -79,6 +181,7 @@ body {
   left: 824px;
   width: 40px;
   height: 40px;
+  z-index: 4;
 }
 #toucan2 {
   background-image: url('../img/toucan/toucan_squawk_anim.gif');
@@ -87,6 +190,7 @@ body {
   left: 824px;
   width: 40px;
   height: 40px;
+  z-index: 4;
 }
 #toucan3 {
   background-image: url('../img/toucan/toucan_hop_anim.gif');
@@ -95,6 +199,7 @@ body {
   left: 824px;
   width: 70px;
   height: 40px;
+  z-index: 4;
 }
 #toucan4 {
   background-image: url('../img/toucan/toucan_fly_anim.gif');
@@ -103,6 +208,7 @@ body {
   left: 824px;
   width: 70px;
   height: 40px;
+  z-index: 4;
 }
 #chest {
   position: absolute;
@@ -115,6 +221,7 @@ body {
   background-position-x: 97px;
   background-position-y: 96px;
   padding-right: 1px;
+  z-index: 4;
 }
 #chestTouched {
   position: absolute;
@@ -127,77 +234,134 @@ body {
   background-position-x: 88px;
   background-position-y: 96px;
   padding-right: 1px;
+  z-index: 4;
+}
+#bear {
+  height: 129px;
+  width: 234px;
+  position: absolute;
+  left: -250px;
+  top: 469px;
+  background: url('../img/ennemies/bear_move.png') -15px -18px;
+  transform: scaleX(-1);
+  z-index: 4;
+}
+#bearTouched {
+  height: 129px;
+  width: 178px;
+  position: absolute;
+  top: 469px;
+  background: url('../img/bearTouched.gif');
+  display: none;
+  z-index: 4;
 }
 #scorpio {
   position: absolute;
   display: block;
-  height: 48px;
-  width: 47px;
-  left: 600px;
-  top: 551px;
-  background-image: url('../img/ennemies/3Scorpio/Scorpio_walk.png');
-  background-position-x: 97px;
-  background-position-y: 96px;
+  height: 52px;
+  width: 83px;
+  left: 619px;
+  top: 532px;
+  /*background-image: url('../img/ennemies/3Scorpio/Scorpio_walk.png');
+  background-image: url('../img/ennemy1.gif');*/
+  background-image: url('../img/ennemies/witcher.gif');
+  background-position-x: 0px;
+  background-position-y: 157px;
   padding-right: 1px;
+  z-index: 4;
 }
 .scorpioMove {
-  animation: scorpioMove 80s infinite;
+  animation: scorpioMove 50s infinite;
 }
 @keyframes scorpioMove {
   from {
-    left: 1200px;
-  }
-  50% {
-    left: 800px;
+    left: 2000px;
   }
   to {
-    left: -600px;
+    left: -200px;
   }
 }
 #scorpioTouched {
   position: absolute;
   display: none;
-  height: 48px;
-  width: 47px;
-  left: 600px;
-  top: 551px;
-  background-image: url('../img/ennemies/3Scorpio/Scorpio_hurt.png');
-  background-position-x: 88px;
-  background-position-y: 96px;
+  height: 60px;
+  width: 54px;
+  top: 550px;
+  background-image: url('../img/ennemies/witcher_death.gif');
+  background-position-x: 0px;
+  background-position-y: 0px;
   padding-right: 1px;
+  z-index: 4;
 }
 #mushroom {
   position: absolute;
   display: block;
   height: 34px;
   width: 52px;
-  left: 400px;
+  left: 500px;
   top: 568px;
   background-image: url('../img/mushroom.png');
   background-position-x: 120px;
   background-position-y: 96px;
   padding-right: 1px;
+  z-index: 4;
 }
 #mushroomTouched {
   display: none;
   position: absolute;
   height: 33px;
   width: 57px;
-  left: 400px;
+  left: 500px;
   top: 568px;
   background-image: url('../img/mushroom.gif');
   background-position-x: 126px;
   background-position-y: 96px;
   padding-right: 1px;
+  z-index: 4;
+}
+#tile3 {
+  position: absolute;
+  display: block;
+  height: 34px;
+  width: 52px;
+  left: 1127px;
+  top: 429px;
+  background-image: url('../img/tile3.jpg');
+  background-position-x: 122px;
+  background-position-y: 32px;
+  z-index: 4;
+}
+#mushroom2 {
+  position: absolute;
+  display: block;
+  height: 34px;
+  width: 52px;
+  left: 1127px;
+  top: 398px;
+  background-image: url('../img/mushroom.png');
+  background-position-x: 122px;
+  background-position-y: 32px;
+  z-index: 4;
+}
+#mushroom2Touched {
+  display: none;
+  position: absolute;
+  height: 34px;
+  width: 52px;
+  left: 1127px;
+  top: 398px;
+  background-image: url('../img/mushroom_green.gif');
+  padding-right: 1px;
+  z-index: 4;
 }
 #merlinContainer {
   position: absolute;
   height: 90px;
-  background: red;
   width: 69px;
   left: 0px;
   top: 510px;
   overflow: hidden;
+  z-index: 4;
 }
 #merlin {
   position: absolute;
@@ -206,33 +370,69 @@ body {
   background-position-y: -51px;
   height: 180px;
   width: 1800px;
+  z-index: 4;
 }
 #angular {
   position: absolute;
   height: 105px;
   width: 100px;
-  left: -373px;
-  top: 0px;
+  left: -600px;
+  top: 40px;
   display: none;
   background-image: url('../img/angular.png');
+  z-index: 4;
 }
 #js {
   position: absolute;
   height: 110px;
   width: 97px;
-  left: -183px;
-  top: 7px;
+  left: -403px;
+  top: 37px;
   display: none;
   background-image: url('../img/js.png');
+  z-index: 4;
 }
 #nodeJS {
   position: absolute;
   height: 105px;
   width: 193px;
-  left: 150px;
-  top: 0px;
+  left: -240px;
+  top: 40px;
   display: none;
   background-image: url('../img/nodejs.png');
+  z-index: 4;
+}
+#typescript {
+  position: absolute;
+  height: 63px;
+  width: 193px;
+  left: -599px;
+  top: 162px;
+  display: none;
+  background-image: url('../img/typescript.png');
+  z-index: 4;
+}
+#attackScript {
+  position: absolute;
+  z-index: 3;
+  width: 100px;
+  height: 86px;
+  background-image: url('../img/attackScript.png');
+}
+#mountain {
+  height: 200px;
+  /*width: 1904px;*/
+  width: 100%;
+  left: -2px;
+  top: 0px;
+  display: block;
+  background-image: url('../img/glacial_mountains/background_glacial_mountains.png');
+  background-position-x: 10px;
+  /*background_glacial_mountains_lightened*/
+  top: 400px;
+  position: absolute;
+  opacity: 1;
+  z-index: 2;
 }
 #clouds {
   position: absolute;
@@ -240,8 +440,9 @@ body {
   width: 1600px;
   left: 0px;
   top: 0px;
-  display: block;
+  display: none;
   background-image: url('../img/clouds.gif');
+  z-index: 3;
 }
 .cloudsMove {
   animation: cloudsMove 150s forwards;
@@ -256,25 +457,31 @@ body {
     top: -800px;
   }
 }
+#sky {
+  background-color: rgb(84, 184, 250);
+  z-index: 1;
+  /*width: 1902px;*/
+  width: 100%;
+  height: 800px;
+  position: absolute;
+}
 #bubbles {
   position: absolute;
   height: 200px;
   width: 290px;
-  left: 340px;
   top: 400px;
   display: none;
   background-image: url('../img/bubbles.gif');
+  z-index: 4;
 }
 .bubblesUp {
-  animation: bubblesUp 5s forwards;
+  animation: bubblesUp 1.5s forwards;
 }
 @keyframes bubblesUp {
   from {
-    left: 340px;
-    top: 400px;
+    top: 350px;
   }
   to {
-    left: 500px;
-    top: 10px;
+    top: 250px;
   }
 }

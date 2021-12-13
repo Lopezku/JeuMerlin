@@ -33,7 +33,7 @@ const merlinStep = 3;
 let positionMountain = parseInt(mountain.style.backgroundPositionX,10);
 const merlininitialLeft = parseInt(document.getElementById('merlinContainer').offsetLeft,10);
 //const floorWidth=parseInt(document.getElementById('floor').offsetWidth,10);
-const floorWidth= 1855;
+const floorWidth= 1843;
 const containerinitialBottom=parseInt(document.getElementById('merlinContainer').offsetTop,10);
 let animMerlinRight, animMerlinAttack, timerCollision, tIDBear;
 let isAnimated = false;
@@ -124,6 +124,7 @@ function jump(jumpDuration, jumpHeight, multiplier){
     if(multiplier>5){
       return;
     }
+    
     //jumpCount.textContent = multiplier;
     merlin.style.backgroundImage=`url('assets/img/wizardpack/jump.png')`;
     gsap.to(merlinContainer, jumpDuration*multiplier, {
@@ -144,6 +145,7 @@ function jump(jumpDuration, jumpHeight, multiplier){
     //TweenMax depredicated gsap
     gsap.delayedCall(.06, function(){
         if(spaceHoldStatus===true){    
+            methodes.onMerlinMove(); 
           multiplier += 1;
           if(multiplier<=5){
             jump(jumpDuration, jumpHeight, multiplier);
@@ -153,7 +155,8 @@ function jump(jumpDuration, jumpHeight, multiplier){
   } 
 
 function checkObstacleCollision(obstacle,merlin){
-    //console.log(obstacle)
+    console.log({merlin})
+
     const isACollision = checkCollision(obstacle,merlin);
     if((isACollision)&&(obstacle.enemy===false)){
         console.log('merlin' + merlin.top+ 'left'+ merlin.left)
@@ -623,7 +626,7 @@ window.addEventListener('keydown', (event)=>{
             jump(.05, -40, 1);
            
           }
-        methodes.onMerlinMove();
+        //methodes.onMerlinMove();
         
     }
 });

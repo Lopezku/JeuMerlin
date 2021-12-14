@@ -43,12 +43,12 @@ ifocop.addEventListener('click',moveFigure);
         if(isNaN(newLeft)) newLeft=0;
         figure.style.backgroundImage=`url('assets/img/walk_anim.gif')`;
         figure.style.width='320px';   
-        if(newLeft<350){
+        if(newLeft<340){
         newLeft=newLeft+10;
         }
         document.getElementById('figure').style.marginLeft=newLeft+"px";
         console.log(document.getElementById('figure').style.marginLeft);
-        if (newLeft>340){
+        if (newLeft>330){
             counterPunch=counterPunch+1;
             let animPunch=setInterval(displayPunch,100);
             figure.style.backgroundImage=`url('assets/img/punch_anim.gif')`;

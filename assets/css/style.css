@@ -458,6 +458,38 @@ figcaption {
   background-image: url('../img/mongodb.png');
   z-index: 4;
 }
+#cercle {
+  height: 100px;
+  width: 100px;
+  background-color: #fd6d0d;
+  position: absolute;
+  top: 300px;
+  left: 400px;
+  display: none;
+  z-index: 5;
+  transform: scale(0);
+  font-family: 'scoreboard', Helvetica, Arial, sans-serif;
+  border-radius: 50%;
+  font-size: 0px;
+  align-items: center;
+  text-align: center;
+  padding: 7px;
+  font-weight: bold;
+  box-sizing: border-box;
+  justify-content: center;
+  animation: circle 5s forwards;
+}
+@keyframes circle {
+  0% {
+    transform: scale(0);
+    font-size: 0;
+  }
+  100% {
+    transform: scale(9);
+    opacity: 1;
+    font-size: 0.4em;
+  }
+}
 #attackScript {
   position: absolute;
   display: none;

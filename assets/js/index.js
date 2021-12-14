@@ -2,9 +2,10 @@
 //document.getElementById("merlin").style.WebkitTransform = "translate(20px)"; 
 function plantMoves(element){
     const distanceBetweenPlantMerlin=plant.offsetLeft-element.left;
-    if(distanceBetweenPlantMerlin<200){
+    if((distanceBetweenPlantMerlin<200)&&(!isPlantAttack)){
         plant.style.display="none";
         plantAttack.style.display="block";
+        isPlantAttack=true;
     }
 }
 
@@ -415,6 +416,9 @@ let methodes = {
             },
             manageScore: ()=>{
             counter.innerHTML = parseInt(counter.innerHTML,10)+100;
+            if(parseInt(counter.innerHTML,10)>=500){
+                document.getElementById('cercle').style.display="flex";
+            }
         //if score 1000 open cv + jdialog felicitations
         },
      loopAnimation: (elapsedTime)=>{

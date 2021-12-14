@@ -1,5 +1,13 @@
 'use strict';
 //document.getElementById("merlin").style.WebkitTransform = "translate(20px)"; 
+function plantMoves(element){
+    const distanceBetweenPlantMerlin=plant.offsetLeft-element.left;
+    if(distanceBetweenPlantMerlin<200){
+        plant.style.display="none";
+        plantAttack.style.display="block";
+    }
+}
+
 function checkCollision(element1,element2){
     if ((element1.left < element2.left + element2.width) && (element1.left + element1.width > element2.left) && (element1.top < element2.top + element2.height) && (element1.height + element1.top > element2.top)) {    
         // collision détectée !
@@ -23,6 +31,7 @@ function parralaxRight(){
 positionMountain=positionMountain+20;
 mountain.style.backgroundPositionX=positionMountain + "px";
 };
+
 function animateBear() {
     let positionBear = 256; 
        tIDBear = setInterval ( () => {bear.style.backgroundPosition = `-${positionBear}px 0px`; 
@@ -105,7 +114,7 @@ function jump(jumpDuration, jumpHeight, multiplier){
     gsap.delayedCall(.06, function(){
         if(spaceHoldStatus===true){    
             methodes.onMerlinMove(); 
-            console.log(merlin)
+            //console.log(merlin)
           multiplier += 1;
           if(multiplier<=5){
             jump(jumpDuration, jumpHeight, multiplier);
@@ -115,11 +124,11 @@ function jump(jumpDuration, jumpHeight, multiplier){
   } 
 
 function checkObstacleCollision(obstacle,merlin){
-    console.log({merlin})
+    //console.log({merlin})
 
     const isACollision = checkCollision(obstacle,merlin);
     if((isACollision)&&(obstacle.enemy===false)){
-        console.log('merlin' + merlin.top+ 'left'+ merlin.left)
+        //console.log('merlin' + merlin.top+ 'left'+ merlin.left)
         obstacle.idTouched.style.display="block";
         obstacle.id.style.display="none";
         if (obstacle.touched===false){
@@ -197,6 +206,9 @@ function bubblesUp(){
             } 
             if(counterLogos===4){
                 typescript.style.display="block";
+            }
+            if(counterLogos===5){
+                mongo.style.display="block";
             }
         setTimeout(()=>{         
             bubbles.classList.remove("bubblesUp");
@@ -368,7 +380,7 @@ let methodes = {
                     height:parseFloat(merlinContainer.offsetHeight),
                     width:parseFloat(merlinContainer.offsetWidth),
                 }
-                
+                plantMoves(currentMerlin);
                 //position scorpio collision
                 obstacles[2].left = parseInt(scorpio.offsetLeft,10);
                 scorpioLeft = parseInt(scorpio.offsetLeft,10);

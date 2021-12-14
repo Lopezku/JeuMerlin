@@ -331,6 +331,42 @@ figcaption {
   background-position-y: 32px;
   z-index: 4;
 }
+#plant {
+  position: absolute;
+  display: block;
+  height: 68px;
+  width: 62px;
+  left: 1020px;
+  top: 534px;
+  background-image: url('../img/carniplant.png');
+  background-position-x: -65px;
+  background-position-y: 68px;
+  z-index: 4;
+}
+#plantAttack {
+  position: absolute;
+  display: none;
+  height: 68px;
+  width: 105px;
+  left: 975px;
+  top: 534px;
+  background-image: url('../img/carniplant_attack.gif');
+  background-position-x: -18px;
+  background-position-y: 68px;
+  z-index: 4;
+}
+#plantTouched {
+  position: none;
+  display: block;
+  height: 68px;
+  width: 105px;
+  left: 975px;
+  top: 534px;
+  background-image: url('../img/carniplant.png');
+  background-position-x: -18px;
+  background-position-y: 68px;
+  z-index: 4;
+}
 #mushroom2 {
   position: absolute;
   display: block;
@@ -412,8 +448,19 @@ figcaption {
   background-image: url('../img/typescript.png');
   z-index: 4;
 }
+#mongo {
+  position: absolute;
+  height: 242px;
+  width: 220px;
+  left: -395px;
+  top: 19px;
+  display: none;
+  background-image: url('../img/mongodb.png');
+  z-index: 4;
+}
 #attackScript {
   position: absolute;
+  display: none;
   z-index: 3;
   width: 100px;
   height: 86px;

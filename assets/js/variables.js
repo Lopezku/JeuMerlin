@@ -3,6 +3,8 @@ const counter = document.getElementById("counter");
 const merlinContainer = document.getElementById("merlinContainer");
 const merlin = document.getElementById("merlin");
 const toucan = document.getElementById("toucan");
+const plantAttack = document.getElementById("plantAttack");
+const plant = document.getElementById("plant");
 const life = document.getElementById("life");
 let counterLife=0;
 const bear = document.getElementById("bear");
@@ -10,6 +12,7 @@ const mountain = document.getElementById("mountain");
 const sky = document.getElementById("sky");
 let timer, secondes = 0; 
 let isToucanFlying=false;
+let isPlantAttack=false;
 let isLeftPosition=false;
 let isAttack;
 let isBubblesUp=false;
@@ -17,6 +20,7 @@ let isJumping = false;
 let spaceHoldStatus = false;
 let scorpioLeft, bearLeft;
 let counterLogos=0;
+const mongo= document.getElementById("mongo");
 const mushroom = document.getElementById("mushroom");
 const mushroom2 = document.getElementById("mushroom2");
 const tile3 = document.getElementById("tile3");
@@ -89,6 +93,17 @@ const obstacles=[{
     touched:false,
     class:'',
     enemy:false,
+},
+{
+    left: 975,
+    top: 534,
+    width: 105,
+    height: 68,
+    id: document.getElementById('plantAttack'),
+    idTouched:document.getElementById('plantTouched'),
+    touched:false,
+    class:'',
+    enemy:true,
 }
 ]
 //perso objet

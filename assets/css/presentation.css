@@ -4,14 +4,17 @@ body {
 #ifocop {
   display: none;
   position: absolute;
-  top: 145px;
+  top: 88px;
   left: 757px;
   font-size: 2em;
-  width: 216px;
-  height: 243px;
+  width: 211px;
+  height: 238px;
   background-image: url('../img/ifocop.png');
   z-index: 1;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
+  outline: none;
 }
 #buttonPlay {
   display: none;

@@ -2,8 +2,9 @@
         let figure= document.getElementById('figure');
         let newLeft = parseFloat(document.getElementById('figure').style.marginLeft);
         let ifocop=document.getElementById("ifocop");
-        let animFigure,punch;
+        let animFigure,punch, animPunch;
         let counterPunch=0;
+        let opacityButton=1;
         let displayButton = function() {
             ifocop.style.display="block";
     }
@@ -11,8 +12,9 @@
     let displayPunch = function() {
         figure.style.backgroundImage=`url('assets/img/punch_anim.gif')`;
         figure.style.width='750px'; 
-        figure.style.zIndex=5;  
-        ifocop.remove();
+        figure.style.zIndex=5;
+        opacityButton=opacityButton-0.05;
+        ifocop.style.opacity = opacityButton;
         if (counterPunch>4){
             displayMerlin();
             playButton();
@@ -44,7 +46,6 @@ ifocop.addEventListener('click',moveFigure);
         if(newLeft<350){
         newLeft=newLeft+10;
         }
-        console.log("🚀 ~ file: presentation.js ~ line 18 ~ moveFigure2 ~ newLeft", newLeft)
         document.getElementById('figure').style.marginLeft=newLeft+"px";
         console.log(document.getElementById('figure').style.marginLeft);
         if (newLeft>340){

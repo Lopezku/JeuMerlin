@@ -1,16 +1,38 @@
+body {
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+}
 #ifocop {
   display: none;
   position: absolute;
-  top: 223px;
-  left: 400px;
+  top: 145px;
+  left: 757px;
+  font-size: 2em;
+  width: 216px;
+  height: 243px;
+  background-image: url('../img/ifocop.png');
+  z-index: 1;
+  cursor: pointer;
+}
+#buttonPlay {
+  display: none;
+  position: absolute;
+  top: 219px;
+  left: 418px;
+  font-size: 1.5em;
+  width: 487px;
+  height: 183px;
+  background-color: #18baf0;
+  z-index: 1;
+  cursor: pointer;
 }
 #containerStory {
   display: flex;
 }
 #figure {
-  background-image: url('assets/img/idle_anim.gif');
-  width: 317px;
+  background-image: url('../img/idle_anim.gif');
+  width: 250px;
   height: 510px;
+  z-index: 5;
 }
 /* Texte défilant */
 .content {
@@ -34,10 +56,7 @@
   margin-left: -100%;
   padding: 0 5px;
   font-size: 1.2rem;
-  animation-duration: 40s;
-  animation-name: defilement;
-  animation-iteration-count: forwards;
-  /*animation: defilement 30s forwards linear;*/
+  animation: defilement 35s forwards linear;
 }
 .message:after {
   content: attr(data-text);

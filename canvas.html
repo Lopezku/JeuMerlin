@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Test</title>
+
+   
+</head>
+<body>
+    
+<canvas width="1500" height="750" id="myCanvas" onclick="draw();"> </canvas>
+<style>
+    body{
+        margin: 0px;
+    }
+    #myCanvas {
+        border: 10px solid #000;
+    }
+</style>
+<script>
+function draw() {
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+    var x = event.clientX;
+    var y = event.clientY;
+    var r = 10;
+        var t1 = setInterval( function () {
+            context.beginPath();
+    context.arc(x,y,r,0, 2*Math.PI);
+    context.strokeStyle= 'blue'
+    context.lineWith=5;
+    context.stroke();
+    r+=10;
+    if(r>250){
+        clearInterval(t1);
+        var t2 = setInterval( function () {
+            context.beginPath();
+            context.arc(x,y,r,0, 2*Math.PI);
+            context.strokeStyle= 'red'
+            context.lineWith=5;
+            context.stroke();
+            r-=10;
+            if(r<20){
+                clearInterval(t2);
+            }
+        }, 100)
+    }
+ }, 100)
+
+    
+}
+
+
+</script>
+</body>
+</html>

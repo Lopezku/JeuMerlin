@@ -31,7 +31,10 @@ function parralaxRight(){
 positionMountain=positionMountain+20;
 mountain.style.backgroundPositionX=positionMountain + "px";
 };
-
+function clearMerlinAnimations(){
+    clearTimeout(animMerlinMoveXaxis);
+        clearTimeout(animMerlinAttack);
+}
 function animateBear() {
     let positionBear = 256; 
        tIDBear = setInterval ( () => {bear.style.backgroundPosition = `-${positionBear}px 0px`; 
@@ -245,9 +248,9 @@ window.addEventListener('keydown', (event)=>{
     }
 });
 window.addEventListener('keyup', (event)=>{
+    clearMerlinAnimations();
     if('ArrowRight' === event.code){
         directions.right=false;
-        clearTimeout(animMerlinRight);
        isAnimated = false;   
        merlinInitalPosition();
        isLeftPosition=false;
@@ -255,14 +258,11 @@ window.addEventListener('keyup', (event)=>{
     }
     if('ArrowLeft' === event.code){
         directions.left=false;
-        clearTimeout(animMerlinRight);
         isAnimated = false;
-        //position base
         merlinInitalLeftPosition();
     } 
     if('Enter' === event.code){
         directions.enterAttack=false;
-        clearTimeout(animMerlinAttack);
         isAnimated = false;
         if(isLeftPosition){
            merlinInitalLeftPosition();
@@ -297,56 +297,55 @@ let methodes = {
         merlinContainer.style[position] = positionValue +'px';
         },
         //animation marche droite
-        animatedRight: (right = 0) =>{
-            merlinContainer.style.height=`${merlinMoves.merlinRun[right].heightContainer}`;
-            merlin.style.backgroundImage=`url(${merlinMoves.merlinRun[right].srcImg})`;
+        animatedRightLeft: (frameSpriteIndice = 0) =>{
+            merlinContainer.style.height=`${merlinMoves.merlinRun[frameSpriteIndice].heightContainer}`;
+            merlin.style.backgroundImage=`url(${merlinMoves.merlinRun[frameSpriteIndice].srcImg})`;
             if (directions.left){
                 merlin.style.transform = 'scaleX(-1)';               
-                merlin.style.backgroundPosition = `${merlinMoves.merlinRunLeft[right].BackgroundX} ${merlinMoves.merlinRunLeft[right].BagroundY}`; 
-                merlinContainer.style.width=`${merlinMoves.merlinRunLeft[right].widhtContainer}`;
-                merlinContainer.style.top=`${merlinMoves.merlinRunLeft[right].topContainer}`;
-                //merlin.style.backgroundImage=`url(assets/img/wizardpack/run.png)`;
+                merlin.style.backgroundPosition = `${merlinMoves.merlinRunLeft[frameSpriteIndice].BackgroundX} ${merlinMoves.merlinRunLeft[frameSpriteIndice].BagroundY}`; 
+                merlinContainer.style.width=`${merlinMoves.merlinRunLeft[frameSpriteIndice].widhtContainer}`;
+                merlinContainer.style.top=`${merlinMoves.merlinRunLeft[frameSpriteIndice].topContainer}`;
+                
             }
             else {
                 merlin.style.transform = '';
-                merlinContainer.style.width=`${merlinMoves.merlinRun[right].widhtContainer}`;
-                merlin.style.backgroundPosition = `${merlinMoves.merlinRun[right].BackgroundX} ${merlinMoves.merlinRun[right].BagroundY}`; 
-                merlinContainer.style.top=`${merlinMoves.merlinRun[right].topContainer}`;
+                merlinContainer.style.width=`${merlinMoves.merlinRun[frameSpriteIndice].widhtContainer}`;
+                merlin.style.backgroundPosition = `${merlinMoves.merlinRun[frameSpriteIndice].BackgroundX} ${merlinMoves.merlinRun[frameSpriteIndice].BagroundY}`; 
+                merlinContainer.style.top=`${merlinMoves.merlinRun[frameSpriteIndice].topContainer}`;
             }
-            if (right < merlinMoves.merlinRun.length-1){
-                right++;
+            if (currentFrameSpriteIndiceMove < merlinMoves.merlinRun.length-1){
+                currentFrameSpriteIndiceMove++;
             }else{
-                right = 0;
+                currentFrameSpriteIndiceMove = 0;
             }
-            animMerlinRight = window.setTimeout(()=>{
-                methodes.animatedRight(right)
+            animMerlinMoveXaxis = window.setTimeout(()=>{
+                methodes.animatedRightLeft(currentFrameSpriteIndiceMove)
             }, 50);
     },
 
     //animation attack
-    animatedAttack: (attack = 0) =>{
-        merlinContainer.style.height=`${merlinMoves.merlinAttack[attack].heightContainer}`;
-        merlin.style.backgroundImage=`url(${merlinMoves.merlinAttack[attack].srcImg})`;
+    animatedAttack: (frameIndiceSpriteAttack = 0) =>{
+        merlinContainer.style.height=`${merlinMoves.merlinAttack[frameIndiceSpriteAttack].heightContainer}`;
+        merlin.style.backgroundImage=`url(${merlinMoves.merlinAttack[frameIndiceSpriteAttack].srcImg})`;
         if (isLeftPosition){
            merlin.style.transform = 'scaleX(-1)';               
-            merlin.style.backgroundPosition = `${merlinMoves.merlinAttackLeft[attack].BackgroundX} ${merlinMoves.merlinAttackLeft[attack].BagroundY}`; 
-            merlinContainer.style.width=`${merlinMoves.merlinAttackLeft[attack].widhtContainer}`;
-            //merlin.style.backgroundImage=`url(assets/img/wizardpack/run.png)`;
-            merlinContainer.style.top=`${merlinMoves.merlinAttackLeft[attack].topContainer}`;
+            merlin.style.backgroundPosition = `${merlinMoves.merlinAttackLeft[frameIndiceSpriteAttack].BackgroundX} ${merlinMoves.merlinAttackLeft[frameIndiceSpriteAttack].BagroundY}`; 
+            merlinContainer.style.width=`${merlinMoves.merlinAttackLeft[frameIndiceSpriteAttack].widhtContainer}`;
+            merlinContainer.style.top=`${merlinMoves.merlinAttackLeft[frameIndiceSpriteAttack].topContainer}`;
         }
         else {
             merlin.style.transform = '';
-            merlinContainer.style.width=`${merlinMoves.merlinAttack[attack].widhtContainer}`;
-            merlin.style.backgroundPosition = `${merlinMoves.merlinAttack[attack].BackgroundX} ${merlinMoves.merlinAttack[attack].BagroundY}`; 
-            merlinContainer.style.top=`${merlinMoves.merlinAttack[attack].topContainer}`;
+            merlinContainer.style.width=`${merlinMoves.merlinAttack[frameIndiceSpriteAttack].widhtContainer}`;
+            merlin.style.backgroundPosition = `${merlinMoves.merlinAttack[frameIndiceSpriteAttack].BackgroundX} ${merlinMoves.merlinAttack[frameIndiceSpriteAttack].BagroundY}`; 
+            merlinContainer.style.top=`${merlinMoves.merlinAttack[frameIndiceSpriteAttack].topContainer}`;
         }
-        if (attack < merlinMoves.merlinAttack.length-1){
-            attack++;
+        if (currentFrameSpriteIndiceAttack < merlinMoves.merlinAttack.length-1){
+            currentFrameSpriteIndiceAttack++;
         }else{
-            attack = 0;
+            currentFrameSpriteIndiceAttack = 0;
         }
         animMerlinAttack = window.setTimeout(()=>{
-            methodes.animatedAttack(attack)
+            methodes.animatedAttack(currentFrameSpriteIndiceAttack)
         }, 50);
 },
              //gestion colission
@@ -393,7 +392,7 @@ let methodes = {
             manageScore: ()=>{
             counter.innerHTML = parseInt(counter.innerHTML,10)+100;
             if(parseInt(counter.innerHTML,10)>=500){
-                document.getElementById('cercle').style.display="flex";
+                document.getElementById('circle').style.display="flex";
             }
         //if score 1000 open cv + jdialog felicitations
         },
@@ -403,20 +402,16 @@ let methodes = {
         methodes.incrementPosition('left',merlinStep);
         if (!isAnimated){
             isAnimated = true;
-            methodes.animatedRight();          
+            methodes.animatedRightLeft();          
           }   
-    }else {
-        methodes.incrementPosition('left',-merlinStep);
     }
     }
     if(directions.left){
-        if(merlinContainer.offsetLeft<merlininitialLeft){
-        methodes.incrementPosition('left',merlinStep);
-    }else{
+        if(merlinContainer.offsetLeft>merlininitialLeft){
         methodes.incrementPosition('left',-merlinStep);
         if (!isAnimated){
             isAnimated = true;
-            methodes.animatedRight();          
+            methodes.animatedRightLeft();          
           }   
     }}
     if(directions.enterAttack){
@@ -466,6 +461,7 @@ function beginGame(){
     /*alert('Pour jouer, appuyer sur les flèches Droite et Gauche. Pour attaquer appuyer sur Entrée. Pour passer directement au CV ou au site, cliquez sur les boutons en haut à droite');*/
     window.open("presentation.html", "Bienvenue dans le game!", "height=650px, width=1000px");
     alert('Pour jouer, appuyer sur les flèches Droite et Gauche. Pour attaquer appuyer sur Entrée. Pour sauter, appuyez sur Espace. Pour passer directement au CV ou au site, cliquez sur les boutons en haut à droite');
+    
     methodes.loopAnimation(0);
 }
 beginGame();

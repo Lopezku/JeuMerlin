@@ -7,6 +7,8 @@ const plantAttack = document.getElementById("plantAttack");
 const plant = document.getElementById("plant");
 const life = document.getElementById("life");
 let counterLife=0;
+let currentFrameSpriteIndiceMove = 0;
+let currentFrameSpriteIndiceAttack = 0;
 const bear = document.getElementById("bear");
 const mountain = document.getElementById("mountain");
 const sky = document.getElementById("sky");
@@ -39,7 +41,7 @@ const merlininitialLeft = parseInt(document.getElementById('merlinContainer').of
 //const floorWidth=parseInt(document.getElementById('floor').offsetWidth,10);
 const floorWidth= 1843;
 const containerinitialBottom=parseInt(document.getElementById('merlinContainer').offsetTop,10);
-let animMerlinRight, animMerlinAttack, timerCollision, tIDBear;
+let animMerlinMoveXaxis, animMerlinAttack, timerCollision, tIDBear;
 let isAnimated = false;
 const obstacles=[{
     left: parseInt(chest.offsetLeft,10),

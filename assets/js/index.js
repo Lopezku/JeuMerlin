@@ -151,12 +151,14 @@ function checkObstacleCollision(obstacle,merlin){
             if (obstacle.touched===false){
                 bubblesUp();
                 methodes.manageScore();
-                //image à la position du scorpio
+                //stop anim Bear if Touched
                 if(obstacle.id==='bear'){
                     stopBear();
                 }
                 obstacle.idTouched.style.display="block";
-                obstacle.idTouched.style.left=document.getElementById("merlinContainer").offsetLeft;
+                obstacle.idTouched.style.left=merlinContainer.offsetLeft+"px";
+                console.log("🚀 ~ file: index.js ~ line 160 ~ checkObstacleCollision ~ obstacle.idTouched", obstacle.idTouched)
+                console.log("🚀 ~ file: index.js ~ line 160 ~ checkObstacleCollision ~ merlinContainer.offsetLeft", merlinContainer.offsetLeft)
             }
             obstacle.touched=true;
         }else{
@@ -168,22 +170,14 @@ function checkObstacleCollision(obstacle,merlin){
             }, 50);
             isAttack=true;
         }  
-        }
-        
+        }    
     }
-    /* remettre image de base pour obstacles
-    else{
-        obstacle.idTouched.style.display="none";
-        obstacle.id.style.display="block";
-        obstacles[2].id.style.display="none";
-        obstacles[2].idTouched.style.display="block";
-    }*/
 }
 
 //avoid scroll
 window.addEventListener("keydown", function(e) {
     // space and arrow keys
-    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+    if([32, 37, 38, 39, 40].includes(e.keyCode)) {
         e.preventDefault();
     }
 }, false);
@@ -217,15 +211,6 @@ function bubblesUp(){
     }, 3000);
     
 }
-/*
-var animationEnCours = false;
-var aExecuter = function(tempsEcoule){
-    augmentLeft1px();
-    //recurssion compte à rebours 50ml secondes
-    if(animationEnCours){
-    window.requestAnimationFrame(aExecuter);
-}
-};*/
 
 window.addEventListener('keydown', (event)=>{
     if('ArrowRight' === event.code){
@@ -236,8 +221,7 @@ window.addEventListener('keydown', (event)=>{
         }
         clouds.style.display="block";
         clouds.classList.add("cloudsMove");
-        /*scorpio.style.display="block";
-        scorpio.classList.add("scorpioMove");*/
+        scorpio.classList.add("scorpioMove");
     }
     if('Enter' === event.code){
         directions.enterAttack=true;
@@ -482,7 +466,7 @@ let methodes = {
 }
 };
 methodes.loopAnimation(0);
-//ok dans mozilla et pas chrome ni edge
+//check collisions en permanence
 setInterval(methodes.onMerlinMove, 1000);
 
 

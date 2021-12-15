@@ -260,10 +260,8 @@ figcaption {
   display: block;
   height: 52px;
   width: 83px;
-  left: 619px;
+  left: 2000px;
   top: 532px;
-  /*background-image: url('../img/ennemies/3Scorpio/Scorpio_walk.png');
-  background-image: url('../img/ennemy1.gif');*/
   background-image: url('../img/ennemies/witcher.gif');
   background-position-x: 0px;
   background-position-y: 157px;
@@ -356,15 +354,14 @@ figcaption {
   z-index: 4;
 }
 #plantTouched {
-  position: none;
-  display: block;
-  height: 68px;
-  width: 105px;
-  left: 975px;
-  top: 534px;
-  background-image: url('../img/carniplant.png');
-  background-position-x: -18px;
-  background-position-y: 68px;
+  position: absolute;
+  display: none;
+  height: 111px;
+  width: 130px;
+  top: 494px;
+  background-image: url('../img/rose.gif');
+  background-position-x: 0px;
+  background-position-y: 0px;
   z-index: 4;
 }
 #mushroom2 {

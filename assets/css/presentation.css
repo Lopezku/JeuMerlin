@@ -31,11 +31,20 @@ body {
 #containerStory {
   display: flex;
 }
-#figure {
+#jerome {
   background-image: url('../img/idle_anim.gif');
   width: 250px;
   height: 510px;
   z-index: 5;
+}
+#merlin {
+  background-image: url('../img/merlin-jump.png');
+  width: 100px;
+  height: 150px;
+  display: none;
+  position: absolute;
+  top: 75px;
+  left: 600px;
 }
 /* Texte défilant */
 .content {

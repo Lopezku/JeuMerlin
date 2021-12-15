@@ -1,5 +1,4 @@
 'use strict';
-//document.getElementById("merlin").style.WebkitTransform = "translate(20px)"; 
 function plantMoves(element){
     const distanceBetweenPlantMerlin=plant.offsetLeft-element.left;
     if((distanceBetweenPlantMerlin<200)&&(!isPlantAttack)){
@@ -110,12 +109,10 @@ function jump(jumpDuration, jumpHeight, multiplier){
         });            
       }
     });
-    // continue adjusting height of jump if spacebar is held
     //TweenMax depredicated gsap
     gsap.delayedCall(.06, function(){
         if(spaceHoldStatus===true){    
             methodes.onMerlinMove(); 
-            //console.log(merlin)
           multiplier += 1;
           if(multiplier<=5){
             jump(jumpDuration, jumpHeight, multiplier);
@@ -125,11 +122,8 @@ function jump(jumpDuration, jumpHeight, multiplier){
   } 
 
 function checkObstacleCollision(obstacle,merlin){
-    //console.log({merlin})
-
     const isACollision = checkCollision(obstacle,merlin);
     if((isACollision)&&(obstacle.enemy===false)){
-        //console.log('merlin' + merlin.top+ 'left'+ merlin.left)
         obstacle.idTouched.style.display="block";
         obstacle.id.style.display="none";
         if (obstacle.touched===false){
@@ -157,8 +151,6 @@ function checkObstacleCollision(obstacle,merlin){
                 }
                 obstacle.idTouched.style.display="block";
                 obstacle.idTouched.style.left=merlinContainer.offsetLeft+"px";
-                console.log("🚀 ~ file: index.js ~ line 160 ~ checkObstacleCollision ~ obstacle.idTouched", obstacle.idTouched)
-                console.log("🚀 ~ file: index.js ~ line 160 ~ checkObstacleCollision ~ merlinContainer.offsetLeft", merlinContainer.offsetLeft)
             }
             obstacle.touched=true;
         }else{

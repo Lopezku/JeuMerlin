@@ -16,7 +16,6 @@ function checkCollision(element1,element2){
    return false
 }
 function parralaxLeft(){
-    //positionMountain = parseInt(mountain.style.backgroundPositionX,10);
     if(isNaN(positionMountain)){
         positionMountain=-20;
 }

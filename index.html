@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div class="topBoard">
     <div id="clouds"></div>
     <div id="sky"></div>
     <div id="mountain"></div>
@@ -30,6 +31,7 @@ Vos vies:<div id="life"></div></div>
     <button id="pause" onclick="document.getElementById('player').pause()">Pause</button> 
     <button id="volPlus" onclick="document.getElementById('player').volume += 0.1">Vol +</button> 
     <button id="volMoins" onclick="document.getElementById('player').volume -= 0.1">Vol -</button> 
+</div>
     <div id="board">
         <div id="bear"></div>
         <div id="bearTouched"></div>
@@ -53,6 +55,16 @@ Vos vies:<div id="life"></div></div>
     <div id="plantTouched"></div>
     <div id="plantAttack"></div>
 
+</div>
+<div class="mobile">
+    <div class="textMobile">
+    <h1>Désolé. Mon site est uniquement disponible sur PC. 
+        </h1>
+        
+    <p>Il sera bientôt disponible sur mobile. Vous pouvez tout de même consulter mon CV via ce <a href="https://www.jerome-lopez.com/jerome_lopez.pdf" alt="CV Jérôme Lopez">lien</a></p>
+</div>
+    <div class="cloud cloudsMoveMobile">
+</div>
 </div>
 <!--to jump TweenMax et Jquery-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
